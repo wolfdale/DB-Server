@@ -10,24 +10,28 @@ INCLUDE=-I../include/
 HEADER=../include/
 
 
-$(BIN)DB_SERVER:$(OBJ)main.o $(OBJ)socket.o $(OBJ)daemon.o
-	$(CC) -o $(BIN)DB_SERVER $(OBJ)main.o $(OBJ)daemon.o $(OBJ)socket.o $(INCLUDE) 
+$(BIN)DB_SERVER:$(OBJ)main.o $(OBJ)socket.o $(OBJ)daemon.o $(OBJ)logger.o
+	$(CC) -o $(BIN)DB_SERVER $(OBJ)main.o $(OBJ)daemon.o $(OBJ)socket.o $(OBJ)logger.o $(INCLUDE) 
 
 
-$(OBJ)main.o:$(SRC)main.cpp $(HEADER)db_header.h $(HEADER)socket_class.h
+$(OBJ)main.o:$(SRC)main.cpp $(HEADER)db_header.h $(HEADER)socket_class.h $(HEADER)logger.h
 	$(CC) $(FLAGS) $(INCLUDE) $(SRC)main.cpp -o $(OBJ)main.o
 
 
-$(OBJ)socket.o:$(SRC)create_socket.cpp $(HEADER)db_header.h $(HEADER)socket_class.h
+$(OBJ)socket.o:$(SRC)create_socket.cpp $(HEADER)db_header.h $(HEADER)socket_class.h $(HEADER)logger.h
 	$(CC) $(FLAGS) $(INCLUDE) $(SRC)create_socket.cpp -o $(OBJ)socket.o
 
 
-$(OBJ)daemon.o:$(SRC)db_daemon.cpp $(HEADER)db_header.h $(HEADER)socket_class.h
+$(OBJ)daemon.o:$(SRC)db_daemon.cpp $(HEADER)db_header.h $(HEADER)socket_class.h $(HEADER)logger.h
 	$(CC) $(FLAGS) $(INCLUDE) $(SRC)db_daemon.cpp -o $(OBJ)daemon.o
 
 
+$(OBJ)logger.o:$(SRC)logging.cpp $(HEADER)logger.h
+	$(CC) $(FLAGS) $(INCLUDE) $(SRC)logging.cpp -o $(OBJ)logger.o
 
 
+clean:
+	rm -rf $(OBJ)*
 
 
 

@@ -3,9 +3,9 @@
 
 #include<vector>
 #include<string>
-
+#include<fstream>
 #include "log_color.h"
-#include "log_severity.h""
+#include "log_severity.h"
 
 class Logger{
 	
@@ -13,7 +13,7 @@ public:
 	
 	Logger()
 	{
-		log_stream.open("../db_log/database_logs.txt", std::ios::base, std::ios::app);
+		log_stream.open("../db_log/database_logs.txt", std::ios_base::out | std::ios_base::app);
 	}
 
 	~Logger()
