@@ -1,51 +1,48 @@
 #include	"db_header.h"
-#include	"db_connection_class.h"
+#include	"connection_handler_class.h"
 #include	"daemon_class.h"
-
+#include 	"logger.h"
 
 int Daemon::start_daemon_process(int svr_sock_fd)
 {
 
-//	ConnectionHandler conn_init;	
+	ConnectionHandler conn_init;	
+	Logger logger;
 
-	//LOG
-	std::cout << "Deamon Module" << std::endl;
+	logger.log_toconsole(Severity::INFO, 
+			std::vector<std::string>{"Froking Process.."});
 	process_id = fork();
+	
 	if (CHECK > process_id)
 	{
-		//log fork unsuccessful
-		std::cout << "Fork Failed" << std::endl;
+		logger.log_toconsole(Severity::ERROR, 
+			std::vector<std::string>{"Fork Failed.. Shutdown Database !"});
 		return EXIT_FAILURE;
 	}
 	
 	if (CHECK < process_id)
 	{
-		//log kill parent process
-		std::cout << "Kill Parent" << std::endl;
+		logger.log_toconsole(Severity::WARN, 
+			std::vector<std::string>{"Killing Parent Process.."});
 		exit(EXIT_SUCCESS);
 	}
 	
-	//log fork success
+	logger.log_toconsole(Severity::INFO, 
+		std::vector<std::string>{"Forking Complete .."});
 	
-	std::cout << "Fork Sys Call Complete" << std::endl;
-	//log close all i/o & error streams
-	
-
+	logger.log_toconsole(Severity::WARN, 
+		std::vector<std::string>{"Closing All I/O Channels.."});
 	close(STDOUT_FILENO);
 	close(STDIN_FILENO);
 	close(STDERR_FILENO);
 
-	//LOG BLOCK ALL SIGNAL
+	logger.log_toconsole(Severity::WARN, 
+		std::vector<std::string>{"Ignoring all signals.."});
 	signal(SIGTTOU, SIG_IGN);
 	signal(SIGTTIN, SIG_IGN);
 	signal(SIGCHLD, SIG_IGN);
 
 //	conn_init.db_connection_handler(svr_sock_fd);	
-
-//	return EXIT_SUCCESS;
-
 	while(1){}
-
 }
-
 

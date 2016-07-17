@@ -1,15 +1,19 @@
 #include "db_header.h"
 #include "socket_class.h"
-
+#include "logger.h"
 
 int Socket :: create_socket()
 {
+	Logger logger;
 	
-	//log
+	logger.log_toconsole(Severity::INFO, 
+			std::vector<std::string>{"Socket Creation Module Invoked.."});
 	sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
 	
 	if (CHECK > sock_fd)
 	{
+		logger.log_toconsole(Severity::ERROR, 
+			std::vector<std::string>{"Socket System Call Failure !!"});
 		throw "Socket Sys call Failed.";
 	}
 	
@@ -22,18 +26,14 @@ int Socket :: create_socket()
 
 	if (CHECK > bind_status)
 	{
+		logger.log_toconsole(Severity::ERROR, 
+			std::vector<std::string>{"Bind System Call Failed !!"});
 		throw "Socket Sys call Failed.";
 	}
 
-	//log 
-	
 	return(sock_fd);
 
 }
-
-
-
-
 
 
 
