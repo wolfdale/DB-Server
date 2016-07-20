@@ -32,9 +32,9 @@ int Daemon::start_daemon_process(int svr_sock_fd)
 	
 	logger.log_toconsole(Severity::WARN, 
 		std::vector<std::string>{"Closing All I/O Channels.."});
-	close(STDOUT_FILENO);
-	close(STDIN_FILENO);
-	close(STDERR_FILENO);
+//	close(STDOUT_FILENO);
+//	close(STDIN_FILENO);
+//	close(STDERR_FILENO);
 
 	logger.log_toconsole(Severity::WARN, 
 		std::vector<std::string>{"Ignoring all signals.."});

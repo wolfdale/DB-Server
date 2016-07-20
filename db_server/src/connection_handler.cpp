@@ -1,13 +1,15 @@
 #include <db_header.h>
 #include <connection_handler_class.h>
 #include <daemon_class.h>
+#include <logger.h>
 
 void ConnectionHandler::db_connection_handler(int db_sock_fd)
 {
-	
+	Logger logger;	
 	while(1)
 	{
-		std::cout << "Waiting For Request.." << std::endl;
+		logger.log_toconsole(Severity::INFO, 
+				std::vector<std::string>{"Waiting For Request.."});
 		query_len = recvfrom(db_sock_fd, query_string, QUERYSIZE, 0, 
 				(struct sockaddr*)&clientaddr, &length);
 		
