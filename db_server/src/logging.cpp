@@ -22,7 +22,7 @@ void Logger::log_toconsole(Severity level, std::vector<std::string> log_msg)
 		std::cout << *itr << " ";
 	
 	}
-	std::cout << std::endl;	
+	std::cout << Color::reset << std::endl;	
 }
 
 void Logger::log_tostream(Severity level, std::vector<std::string> log_msg)
