@@ -18,6 +18,7 @@
 	//custom
 //	#include "logger.h"
 
+
 	#define CHECK 0
 	#define	INIT_PORT 5000
 	#define QUERYSIZE 1024
