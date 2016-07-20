@@ -42,7 +42,7 @@ int Daemon::start_daemon_process(int svr_sock_fd)
 	signal(SIGTTIN, SIG_IGN);
 	signal(SIGCHLD, SIG_IGN);
 
-//	conn_init.db_connection_handler(svr_sock_fd);	
-	while(1){}
+	conn_init.db_connection_handler(svr_sock_fd);	
+
 }
 
