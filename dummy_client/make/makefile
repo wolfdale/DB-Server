@@ -17,7 +17,8 @@ $(OBJ)client_main.o:$(SRC)client_main.cpp $(HEADER)client_header.h
 
 
 
-
+clean:
+	rm -rf $(OBJ)*.o
 
 
 
