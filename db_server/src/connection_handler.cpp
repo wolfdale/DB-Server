@@ -10,6 +10,10 @@ void ConnectionHandler::db_connection_handler(int db_sock_fd)
 	{
 		logger.log_toconsole(Severity::INFO, 
 				std::vector<std::string>{"Waiting For Request.."});
+	
+		memset(query_string, 0, QUERYSIZE);
+
+
 		query_len = recvfrom(db_sock_fd, query_string, QUERYSIZE, 0, 
 				(struct sockaddr*)&clientaddr, &length);
 		

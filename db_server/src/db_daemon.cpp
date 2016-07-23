@@ -11,21 +11,21 @@ int Daemon::start_daemon_process(int svr_sock_fd)
 
 	logger.log_toconsole(Severity::INFO, 
 			std::vector<std::string>{"Froking Process.."});
-	process_id = fork();
+//	process_id = fork();
 	
-	if (CHECK > process_id)
-	{
+//	if (CHECK > process_id)
+//	{
 		logger.log_toconsole(Severity::ERROR, 
 			std::vector<std::string>{"Fork Failed.. Shutdown Database !"});
-		return EXIT_FAILURE;
-	}
+//		return EXIT_FAILURE;
+//	}
 	
-	if (CHECK < process_id)
-	{
+//	if (CHECK < process_id)
+//	{
 		logger.log_toconsole(Severity::WARN, 
 			std::vector<std::string>{"Killing Parent Process.."});
-		exit(EXIT_SUCCESS);
-	}
+//		exit(EXIT_SUCCESS);
+//	}
 	
 	logger.log_toconsole(Severity::INFO, 
 		std::vector<std::string>{"Forking Complete .."});
@@ -38,9 +38,9 @@ int Daemon::start_daemon_process(int svr_sock_fd)
 
 	logger.log_toconsole(Severity::WARN, 
 		std::vector<std::string>{"Ignoring all signals.."});
-	signal(SIGTTOU, SIG_IGN);
-	signal(SIGTTIN, SIG_IGN);
-	signal(SIGCHLD, SIG_IGN);
+//	signal(SIGTTOU, SIG_IGN);
+//	signal(SIGTTIN, SIG_IGN);
+//	signal(SIGCHLD, SIG_IGN);
 
 	conn_init.db_connection_handler(svr_sock_fd);	
 
