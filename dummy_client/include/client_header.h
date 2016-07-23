@@ -14,7 +14,7 @@
 	#include<cstring>
 
 	#define CHECK 0
-
+	#define SERVER_PORT 5000
 
 
 #endif
