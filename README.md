@@ -7,9 +7,9 @@ Simple Database Server for C/C++
 <p>
 $INIT_CONN$<br/>
 $CLOSE_CONN$<br/>
-$CREATE_TABLE$ &#60; <TABLE_NAME &#62; ><br/>
-$ADD_SCH$&#60;<NO_OF_COL &#62;> &#60; <NAME_OF_COL &#62;> .. < > <br/>
-$ADD_DATA$&#60;<DATA with COL_MAPPING&#62;><br/>
+$CREATE_TABLE$ <br/>
+$ADD_SCH$<br/>
+$ADD_DATA$<br/>
 $SHOW_DATA$<br/>
 
 
