@@ -16,7 +16,7 @@
 // QUERY Structure - 
 //
 //	$INIT_CONN$ -- Server will Send OK status with Buffer Size
-//	
+//	$CLOSE_CONN$	
 //	$CREATE_T$<T_NAME> -- Server Make Metadata File & 
 //			      Datafile<named after table> 
 //

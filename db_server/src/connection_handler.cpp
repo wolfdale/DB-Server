@@ -8,9 +8,16 @@ void client_handler(int& port);
 
 void client_handler(int& port){
 
+	Logger log;
+	QueryEngine exec_query;
+	
+	bool status = exec_query.query_validator();
+	
+	//Do not Kill Thread unit Connection is Closed. 
 
 	std::cout << std::this_thread::get_id() << std::endl;
 	std::cout << port << std::endl;
+	//Indication for No. of Concurrent Thread EXEC on HW
 	std::cout << std::thread::hardware_concurrency() << std::endl;
 
 }
