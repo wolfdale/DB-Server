@@ -7,15 +7,10 @@ Simple Database Server for C/C++
 <p>
 $INIT_CONN$<br/>
 $CLOSE_CONN$<br/>
-$CREATE_TABLE$ <br/>
+$CREATE_TABLE$<br/>
 $ADD_SCH$<br/>
 $ADD_DATA$<br/>
 $SHOW_DATA$<br/>
 
-
-
-
-
- &#60;
 </p>
 
